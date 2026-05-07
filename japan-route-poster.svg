@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1800" viewBox="0 0 1200 1800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6efe4"/>
+      <stop offset="0.48" stop-color="#eef3ee"/>
+      <stop offset="1" stop-color="#e8f0f6"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d7ecf1"/>
+      <stop offset="1" stop-color="#b7d4de"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#41505a" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      text { font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; fill: #243138; }
+      .small { font-size: 24px; letter-spacing: 0; }
+      .tiny { font-size: 19px; letter-spacing: 0; fill: #51616a; }
+      .title { font-size: 68px; font-weight: 800; letter-spacing: 0; }
+      .subtitle { font-size: 28px; fill: #4c5d64; }
+      .card-title { font-size: 34px; font-weight: 800; }
+      .tag { font-size: 20px; font-weight: 700; fill: #ffffff; }
+      .label { font-size: 20px; font-weight: 700; }
+      .city { font-size: 18px; font-weight: 700; fill: #243138; }
+      .note { font-size: 17px; fill: #5f6d74; }
+      .island { fill: #edf4eb; stroke: #89a38d; stroke-width: 3; }
+      .map-line { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 8; }
+      .route-dot { stroke: #ffffff; stroke-width: 4; }
+      .card { fill: rgba(255,255,255,0.82); stroke: rgba(62,83,88,0.18); stroke-width: 2; }
+      .divider { stroke: rgba(62,83,88,0.18); stroke-width: 2; }
+      .muted-box { fill: rgba(255,255,255,0.48); stroke: rgba(62,83,88,0.14); stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1800" fill="url(#bg)"/>
+  <circle cx="1040" cy="150" r="90" fill="#e15f4f" opacity="0.14"/>
+  <circle cx="130" cy="1570" r="140" fill="#2f7c8c" opacity="0.12"/>
+  <path d="M0 315 C190 260 320 345 495 295 C710 235 865 270 1200 205 L1200 0 L0 0 Z" fill="#ffffff" opacity="0.42"/>
+
+  <text x="70" y="120" class="title">日本第一次独行路线海报</text>
+  <text x="74" y="170" class="subtitle">上海出发｜2026年6月中旬｜5-7天｜人文、风景与主要城市</text>
+
+  <g transform="translate(70,220)" filter="url(#softShadow)">
+    <rect width="1060" height="350" rx="28" fill="url(#sea)"/>
+    <path class="island" d="M720 52 C760 70 790 96 810 135 C835 185 874 221 915 264 C876 284 821 277 786 247 C755 219 739 181 706 156 C668 126 649 94 664 65 C676 48 696 43 720 52 Z"/>
+    <path class="island" d="M485 164 C525 137 578 140 610 171 C642 202 625 250 584 270 C548 288 496 287 463 258 C431 229 439 194 485 164 Z"/>
+    <path class="island" d="M396 248 C423 229 461 239 474 268 C488 300 456 324 421 318 C391 313 375 287 386 265 C389 258 392 252 396 248 Z"/>
+    <path class="island" d="M300 278 C330 270 361 285 367 313 C374 344 341 362 309 351 C279 341 263 312 275 292 C281 284 289 280 300 278 Z"/>
+    <path class="island" d="M214 157 C250 125 304 121 333 151 C364 184 345 230 300 246 C260 260 213 245 196 213 C185 191 193 176 214 157 Z"/>
+    <path class="map-line" stroke="#d64f45" d="M130 280 C196 242 248 220 285 205 C360 176 444 206 510 222 C585 240 665 205 733 146"/>
+    <circle cx="130" cy="280" r="12" fill="#d64f45" class="route-dot"/>
+    <text x="78" y="318" class="city">上海</text>
+    <circle cx="285" cy="205" r="12" fill="#d64f45" class="route-dot"/>
+    <text x="252" y="189" class="city">大阪</text>
+    <circle cx="330" cy="185" r="12" fill="#d64f45" class="route-dot"/>
+    <text x="337" y="176" class="city">京都</text>
+    <circle cx="356" cy="227" r="12" fill="#d64f45" class="route-dot"/>
+    <text x="365" y="235" class="city">奈良</text>
+    <circle cx="733" cy="146" r="12" fill="#d64f45" class="route-dot"/>
+    <text x="747" y="139" class="city">东京</text>
+    <circle cx="827" cy="94" r="12" fill="#d64f45" class="route-dot"/>
+    <text x="841" y="95" class="city">北海道</text>
+    <rect x="710" y="248" width="285" height="64" rx="16" fill="#ffffff" opacity="0.82"/>
+    <text x="734" y="275" class="label">阅读方式</text>
+    <text x="734" y="300" class="tiny">下面四张卡对应四种旅行取向</text>
+  </g>
+
+  <g transform="translate(70,625)" filter="url(#softShadow)">
+    <rect class="card" width="515" height="455" rx="26"/>
+    <rect x="28" y="28" width="128" height="38" rx="19" fill="#d64f45"/>
+    <text x="47" y="54" class="tag">首推稳妥</text>
+    <text x="28" y="112" class="card-title">A 关西 5天</text>
+    <text x="28" y="150" class="subtitle">大阪 + 京都 + 奈良</text>
+    <g transform="translate(34,185)">
+      <path d="M26 156 C72 117 139 93 214 106 C278 117 327 88 397 34" class="map-line" stroke="#d64f45"/>
+      <circle cx="26" cy="156" r="11" fill="#d64f45" class="route-dot"/>
+      <circle cx="159" cy="104" r="11" fill="#d64f45" class="route-dot"/>
+      <circle cx="214" cy="106" r="11" fill="#d64f45" class="route-dot"/>
+      <circle cx="244" cy="144" r="11" fill="#d64f45" class="route-dot"/>
+      <circle cx="397" cy="34" r="11" fill="#d64f45" class="route-dot"/>
+      <text x="0" y="190" class="city">上海</text>
+      <text x="128" y="88" class="city">大阪</text>
+      <text x="218" y="98" class="city">京都</text>
+      <text x="253" y="155" class="city">奈良</text>
+      <text x="374" y="23" class="city">返程</text>
+    </g>
+    <line x1="28" x2="487" y1="340" y2="340" class="divider"/>
+    <text x="28" y="380" class="small">预算：8000-11000元</text>
+    <text x="28" y="413" class="tiny">关键词：古寺老街、吃喝方便、交通简单</text>
+  </g>
+
+  <g transform="translate(615,625)" filter="url(#softShadow)">
+    <rect class="card" width="515" height="455" rx="26"/>
+    <rect x="28" y="28" width="128" height="38" rx="19" fill="#2f7c8c"/>
+    <text x="47" y="54" class="tag">城市冲击</text>
+    <text x="28" y="112" class="card-title">B 东京 5天</text>
+    <text x="28" y="150" class="subtitle">东京 + 镰仓 / 箱根</text>
+    <g transform="translate(34,185)">
+      <path d="M24 157 C88 113 174 72 266 60 C326 52 367 76 414 104" class="map-line" stroke="#2f7c8c"/>
+      <circle cx="24" cy="157" r="11" fill="#2f7c8c" class="route-dot"/>
+      <circle cx="266" cy="60" r="11" fill="#2f7c8c" class="route-dot"/>
+      <circle cx="328" cy="96" r="11" fill="#2f7c8c" class="route-dot"/>
+      <circle cx="414" cy="104" r="11" fill="#2f7c8c" class="route-dot"/>
+      <text x="0" y="190" class="city">上海</text>
+      <text x="246" y="44" class="city">东京</text>
+      <text x="307" y="128" class="city">镰仓</text>
+      <text x="390" y="135" class="city">箱根</text>
+    </g>
+    <line x1="28" x2="487" y1="340" y2="340" class="divider"/>
+    <text x="28" y="380" class="small">预算：9000-12000元</text>
+    <text x="28" y="413" class="tiny">关键词：夜景、博物馆、潮流、海边电车</text>
+  </g>
+
+  <g transform="translate(70,1125)" filter="url(#softShadow)">
+    <rect class="card" width="515" height="455" rx="26"/>
+    <rect x="28" y="28" width="146" height="38" rx="19" fill="#475f93"/>
+    <text x="48" y="54" class="tag">经典大满贯</text>
+    <text x="28" y="112" class="card-title">C 横跨 7天</text>
+    <text x="28" y="150" class="subtitle">大阪进，东京出</text>
+    <g transform="translate(34,185)">
+      <path d="M24 157 C104 113 161 108 213 107 C282 105 330 80 414 39" class="map-line" stroke="#475f93"/>
+      <circle cx="24" cy="157" r="11" fill="#475f93" class="route-dot"/>
+      <circle cx="161" cy="108" r="11" fill="#475f93" class="route-dot"/>
+      <circle cx="213" cy="107" r="11" fill="#475f93" class="route-dot"/>
+      <circle cx="414" cy="39" r="11" fill="#475f93" class="route-dot"/>
+      <text x="0" y="190" class="city">上海</text>
+      <text x="132" y="92" class="city">大阪</text>
+      <text x="216" y="99" class="city">京都</text>
+      <text x="392" y="28" class="city">东京</text>
+      <text x="252" y="72" class="note">新干线</text>
+    </g>
+    <line x1="28" x2="487" y1="340" y2="340" class="divider"/>
+    <text x="28" y="380" class="small">预算：12000-15000元</text>
+    <text x="28" y="413" class="tiny">关键词：名城一次看够，但体力消耗更高</text>
+  </g>
+
+  <g transform="translate(615,1125)" filter="url(#softShadow)">
+    <rect class="card" width="515" height="455" rx="26"/>
+    <rect x="28" y="28" width="146" height="38" rx="19" fill="#5f7f45"/>
+    <text x="48" y="54" class="tag">自然发散版</text>
+    <text x="28" y="112" class="card-title">D 北海道 6-7天</text>
+    <text x="28" y="150" class="subtitle">札幌 + 小樽 + 美瑛 + 登别</text>
+    <g transform="translate(34,185)">
+      <path d="M24 157 C111 91 200 56 294 42 C350 34 389 57 423 94" class="map-line" stroke="#5f7f45"/>
+      <circle cx="24" cy="157" r="11" fill="#5f7f45" class="route-dot"/>
+      <circle cx="294" cy="42" r="11" fill="#5f7f45" class="route-dot"/>
+      <circle cx="246" cy="70" r="11" fill="#5f7f45" class="route-dot"/>
+      <circle cx="351" cy="78" r="11" fill="#5f7f45" class="route-dot"/>
+      <circle cx="423" cy="94" r="11" fill="#5f7f45" class="route-dot"/>
+      <text x="0" y="190" class="city">上海</text>
+      <text x="272" y="28" class="city">札幌</text>
+      <text x="219" y="100" class="city">小樽</text>
+      <text x="342" y="68" class="city">美瑛</text>
+      <text x="399" y="126" class="city">登别</text>
+    </g>
+    <line x1="28" x2="487" y1="340" y2="340" class="divider"/>
+    <text x="28" y="380" class="small">预算：12000-16000元</text>
+    <text x="28" y="413" class="tiny">关键词：开阔、慢节奏、温泉，交通要多规划</text>
+  </g>
+
+  <g transform="translate(70,1630)">
+    <rect class="muted-box" width="1060" height="100" rx="22"/>
+    <text x="28" y="42" class="small">一句话决策：第一次独行选关西 5-6天最稳；想大城市选东京；想一次刷名城选7天横跨；想自然风景选北海道。</text>
+    <text x="28" y="76" class="tiny">备注：这是旅行规划示意海报，路线位置用于理解顺序；实际交通以航班、JR、地铁导航为准。</text>
+  </g>
+</svg>

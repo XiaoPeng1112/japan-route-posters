@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>日本第一次独行路线海报组</title>
+  <style>
+    :root {
+      --ink: #243138;
+      --muted: #607079;
+      --paper: #fbf7ef;
+      --line: rgba(36, 49, 56, 0.16);
+      --kansai: #d64f45;
+      --tokyo: #2f7c8c;
+      --classic: #475f93;
+      --hokkaido: #5f7f45;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #dfe7e8;
+      color: var(--ink);
+      font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .wrap {
+      display: grid;
+      gap: 28px;
+      padding: 28px;
+      justify-content: center;
+    }
+
+    .poster {
+      width: min(920px, calc(100vw - 32px));
+      min-height: 1280px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(225, 95, 79, 0.16), transparent 22%),
+        radial-gradient(circle at 5% 92%, rgba(47, 124, 140, 0.13), transparent 24%),
+        linear-gradient(135deg, #f8efe2, #edf4ef 52%, #e8f0f6);
+      box-shadow: 0 26px 70px rgba(30, 42, 48, 0.22);
+      padding: 58px;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(36, 49, 56, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36, 49, 56, 0.035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+      pointer-events: none;
+    }
+
+    .poster > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 22px 0 12px;
+      font-size: 62px;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.55;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      margin-top: 38px;
+      align-items: stretch;
+    }
+
+    .map {
+      min-height: 380px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.58);
+      overflow: hidden;
+    }
+
+    .stats {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .stat b {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.42;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .photo-card {
+      position: relative;
+      margin: 0;
+      min-height: 154px;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(36, 49, 56, 0.14);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 154px;
+      display: block;
+      object-fit: cover;
+      filter: saturate(1.02) contrast(1.03);
+    }
+
+    .photo-card span {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(24, 34, 39, 0.68);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .panel {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.66);
+    }
+
+    .panel h2 {
+      margin: 0 0 16px;
+      font-size: 25px;
+      letter-spacing: 0;
+    }
+
+    .days {
+      display: grid;
+      gap: 12px;
+    }
+
+    .day {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 12px;
+      align-items: start;
+      font-size: 17px;
+      line-height: 1.42;
+    }
+
+    .day strong {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .day span {
+      color: var(--muted);
+    }
+
+    .bar {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 82px 1fr 86px;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .track {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(36, 49, 56, 0.11);
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .kansai .eyebrow,
+    .kansai .day strong,
+    .kansai .fill {
+      background: var(--kansai);
+    }
+
+    .tokyo .eyebrow,
+    .tokyo .day strong,
+    .tokyo .fill {
+      background: var(--tokyo);
+    }
+
+    .classic .eyebrow,
+    .classic .day strong,
+    .classic .fill {
+      background: var(--classic);
+    }
+
+    .hokkaido .eyebrow,
+    .hokkaido .day strong,
+    .hokkaido .fill {
+      background: var(--hokkaido);
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .sea {
+      fill: #d8edf2;
+    }
+
+    .land {
+      fill: #edf5ea;
+      stroke: rgba(87, 126, 94, 0.72);
+      stroke-width: 2.5;
+    }
+
+    .route {
+      fill: none;
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .rail {
+      fill: none;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 12 10;
+    }
+
+    .flight {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 6 9;
+      opacity: 0.72;
+    }
+
+    .dot {
+      stroke: #fff;
+      stroke-width: 4;
+    }
+
+    .minor-dot {
+      fill: #ffffff;
+      stroke: rgba(36, 49, 56, 0.35);
+      stroke-width: 2;
+    }
+
+    .map-frame {
+      fill: rgba(255, 255, 255, 0.48);
+      stroke: rgba(36, 49, 56, 0.14);
+      stroke-width: 1.5;
+    }
+
+    .focus {
+      fill: none;
+      stroke-width: 3;
+      stroke-dasharray: 7 7;
+      opacity: 0.82;
+    }
+
+    .compass {
+      fill: rgba(255, 255, 255, 0.72);
+      stroke: rgba(36, 49, 56, 0.18);
+      stroke-width: 1.5;
+    }
+
+    .map text {
+      font-size: 15px;
+      font-weight: 800;
+      fill: var(--ink);
+    }
+
+    .map .caption {
+      font-size: 16px;
+      fill: var(--muted);
+    }
+
+    .map .tiny-map {
+      font-size: 12px;
+      fill: var(--muted);
+      font-weight: 700;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .wrap {
+        display: block;
+        padding: 0;
+      }
+
+      .poster {
+        width: 210mm;
+        min-height: 297mm;
+        page-break-after: always;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .poster {
+        min-height: auto;
+        padding: 32px 24px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      .hero,
+      .grid,
+      .photos {
+        grid-template-columns: 1fr;
+      }
+
+      .map {
+        min-height: 260px;
+      }
+
+      .photo-card,
+      .photo-card img {
+        min-height: 210px;
+      }
+
+      .footer {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="poster kansai">
+      <div class="eyebrow">首推稳妥｜第一次出国友好</div>
+      <h1>关西 5天<br>大阪 京都 奈良</h1>
+      <p class="lead">人文、城市、风景都能吃到，交通简单，预算好控。第一次一个人去日本，我会把这条放在第一位。</p>
+      <div class="hero">
+        <div class="map">
+          <svg viewBox="0 0 760 430" aria-label="关西路线图">
+            <rect width="760" height="430" class="sea"/>
+            <rect x="18" y="22" width="318" height="372" rx="18" class="map-frame"/>
+            <rect x="368" y="22" width="374" height="372" rx="18" class="map-frame"/>
+            <text x="36" y="54" class="caption">日本全国方位</text>
+            <text x="388" y="54" class="caption">关西放大｜大阪、京都、奈良</text>
+            <circle cx="303" cy="56" r="20" class="compass"/>
+            <path d="M303 43 L310 64 L303 60 L296 64 Z" fill="#243138"/>
+            <text x="299" y="82" class="tiny-map">N</text>
+
+            <path class="land" d="M229 65 C257 45 296 49 314 75 C334 104 309 132 274 127 C241 122 215 100 217 80 C218 74 222 69 229 65 Z"/>
+            <path class="land" d="M79 286 C118 250 159 232 203 216 C247 200 263 171 285 145 C305 122 334 120 349 140 C364 161 347 184 318 200 C287 217 262 235 235 265 C207 296 169 324 123 328 C95 331 70 312 79 286 Z"/>
+            <path class="land" d="M168 304 C196 295 231 305 240 328 C249 352 217 367 184 359 C157 352 143 330 151 315 C154 310 160 306 168 304 Z"/>
+            <path class="land" d="M90 338 C119 325 153 338 161 363 C169 389 139 405 106 395 C78 386 61 363 72 348 C76 343 82 340 90 338 Z"/>
+            <path class="flight" stroke="#d64f45" d="M48 382 C82 346 125 317 194 257"/>
+            <ellipse cx="205" cy="254" rx="46" ry="34" class="focus" stroke="#d64f45"/>
+            <circle class="dot" cx="48" cy="382" r="9" fill="#d64f45"/>
+            <circle class="dot" cx="194" cy="257" r="9" fill="#d64f45"/>
+            <circle class="minor-dot" cx="224" cy="235" r="5"/>
+            <circle class="minor-dot" cx="318" cy="170" r="5"/>
+            <text x="32" y="410">上海</text>
+            <text x="155" y="249">关西</text>
+            <text x="229" y="229" class="tiny-map">中部</text>
+            <text x="318" y="158" class="tiny-map">东京</text>
+            <text x="236" y="54" class="tiny-map">北海道</text>
+            <text x="90" y="351" class="tiny-map">九州</text>
+
+            <path class="land" d="M433 187 C461 151 506 136 556 145 C602 153 631 184 635 223 C639 264 596 295 544 292 C489 289 437 260 422 224 C417 210 420 197 433 187 Z"/>
+            <path class="land" d="M448 283 C476 268 513 274 528 300 C544 328 511 349 473 341 C443 334 426 307 437 292 C440 288 444 285 448 283 Z"/>
+            <path class="land" d="M597 133 C620 116 653 118 671 139 C690 162 675 192 644 194 C616 196 592 179 589 156 C588 147 591 139 597 133 Z"/>
+            <path class="flight" stroke="#d64f45" d="M392 365 C424 319 477 258 508 235"/>
+            <path class="route" stroke="#d64f45" d="M508 235 C532 212 548 187 566 166 C573 176 575 196 562 215 C552 231 530 241 508 235 C517 257 541 267 566 258"/>
+            <circle class="dot" cx="392" cy="365" r="10" fill="#d64f45"/>
+            <circle class="dot" cx="508" cy="235" r="11" fill="#d64f45"/>
+            <circle class="dot" cx="566" cy="166" r="11" fill="#d64f45"/>
+            <circle class="dot" cx="566" cy="258" r="11" fill="#d64f45"/>
+            <circle class="minor-dot" cx="609" cy="184" r="6"/>
+            <circle class="minor-dot" cx="492" cy="211" r="5"/>
+            <text x="378" y="392">上海</text>
+            <text x="474" y="225">大阪</text>
+            <text x="575" y="160">京都</text>
+            <text x="575" y="265">奈良</text>
+            <text x="615" y="179" class="tiny-map">琵琶湖</text>
+            <text x="455" y="203" class="tiny-map">神户</text>
+            <text x="529" y="223" class="tiny-map">JR/近铁</text>
+          </svg>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>推荐预算</b><span>8000-11000元，省钱可压到 7000 左右。</span></div>
+          <div class="stat"><b>推荐住宿</b><span>大阪难波/心斋桥，或大阪2晚+京都2晚。</span></div>
+          <div class="stat"><b>路线气质</b><span>古寺、老街、鸭川、奈良公园、大阪夜生活。</span></div>
+        </div>
+      </div>
+      <div class="photos">
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dotonbori%2C%20Osaka.jpg?width=640" alt="大阪道顿堀夜景" loading="lazy">
+          <span>大阪｜道顿堀</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kiyomizu-dera%20in%20Kyoto-r.jpg?width=640" alt="京都清水寺" loading="lazy">
+          <span>京都｜清水寺</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kyoto_Schrein_Fushimi-Inari-taisha_Torii_13.jpg?width=640" alt="京都伏见稻荷大社鸟居" loading="lazy">
+          <span>京都｜伏见稻荷</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Todai-ji_Kon-do.JPG?width=640" alt="奈良东大寺" loading="lazy">
+          <span>奈良｜东大寺</span>
+        </figure>
+      </div>
+      <div class="grid">
+        <div class="panel">
+          <h2>每日节奏</h2>
+          <div class="days">
+            <div class="day"><strong>D1</strong><span>上海飞大阪，晚上道顿堀、法善寺横丁。</span></div>
+            <div class="day"><strong>D2</strong><span>清水寺、二年坂三年坂、八坂神社、祇园。</span></div>
+            <div class="day"><strong>D3</strong><span>伏见稻荷早起，下午宇治或岚山。</span></div>
+            <div class="day"><strong>D4</strong><span>奈良东大寺、春日大社、若草山。</span></div>
+            <div class="day"><strong>D5</strong><span>大阪城或黑门市场，下午/晚上返程。</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>预算结构</h2>
+          <div class="bar">
+            <div class="bar-row"><span>机票</span><div class="track"><div class="fill" style="width: 72%"></div></div><span>2000-3000</span></div>
+            <div class="bar-row"><span>住宿</span><div class="track"><div class="fill" style="width: 88%"></div></div><span>2500-4000</span></div>
+            <div class="bar-row"><span>吃饭</span><div class="track"><div class="fill" style="width: 46%"></div></div><span>1200-1800</span></div>
+            <div class="bar-row"><span>交通</span><div class="track"><div class="fill" style="width: 31%"></div></div><span>700-1200</span></div>
+            <div class="bar-row"><span>杂费</span><div class="track"><div class="fill" style="width: 24%"></div></div><span>600-1000</span></div>
+          </div>
+          <div class="chips"><span class="chip">第一次首选</span><span class="chip">人文最稳</span><span class="chip">少搬酒店</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>适合：想要稳、好吃、好拍、不太折腾的人。</span><span>避坑：京都热门点早起去，6月带伞和防水鞋。</span></div>
+    </section>
+
+    <section class="poster tokyo">
+      <div class="eyebrow">城市冲击｜夜景潮流博物馆</div>
+      <h1>东京 5天<br>东京 镰仓 箱根</h1>
+      <p class="lead">大城市感最强，白天博物馆和街区，晚上新宿涩谷。加一天镰仓看海，能把节奏从都市里松出来。</p>
+      <div class="hero">
+        <div class="map">
+          <svg viewBox="0 0 760 430" aria-label="东京路线图">
+            <rect width="760" height="430" class="sea"/>
+            <rect x="18" y="22" width="318" height="372" rx="18" class="map-frame"/>
+            <rect x="368" y="22" width="374" height="372" rx="18" class="map-frame"/>
+            <text x="36" y="54" class="caption">日本全国方位</text>
+            <text x="388" y="54" class="caption">关东放大｜东京、镰仓、箱根</text>
+            <circle cx="303" cy="56" r="20" class="compass"/>
+            <path d="M303 43 L310 64 L303 60 L296 64 Z" fill="#243138"/>
+            <text x="299" y="82" class="tiny-map">N</text>
+
+            <path class="land" d="M229 65 C257 45 296 49 314 75 C334 104 309 132 274 127 C241 122 215 100 217 80 C218 74 222 69 229 65 Z"/>
+            <path class="land" d="M79 286 C118 250 159 232 203 216 C247 200 263 171 285 145 C305 122 334 120 349 140 C364 161 347 184 318 200 C287 217 262 235 235 265 C207 296 169 324 123 328 C95 331 70 312 79 286 Z"/>
+            <path class="land" d="M168 304 C196 295 231 305 240 328 C249 352 217 367 184 359 C157 352 143 330 151 315 C154 310 160 306 168 304 Z"/>
+            <path class="land" d="M90 338 C119 325 153 338 161 363 C169 389 139 405 106 395 C78 386 61 363 72 348 C76 343 82 340 90 338 Z"/>
+            <path class="flight" stroke="#2f7c8c" d="M48 382 C110 318 206 245 318 170"/>
+            <ellipse cx="318" cy="170" rx="42" ry="35" class="focus" stroke="#2f7c8c"/>
+            <circle class="dot" cx="48" cy="382" r="9" fill="#2f7c8c"/>
+            <circle class="dot" cx="318" cy="170" r="9" fill="#2f7c8c"/>
+            <circle class="minor-dot" cx="194" cy="257" r="5"/>
+            <text x="32" y="410">上海</text>
+            <text x="327" y="164">东京</text>
+            <text x="155" y="249" class="tiny-map">关西</text>
+            <text x="236" y="54" class="tiny-map">北海道</text>
+            <text x="90" y="351" class="tiny-map">九州</text>
+
+            <path class="land" d="M428 101 C470 72 535 75 584 105 C625 130 656 177 654 227 C652 283 601 331 537 333 C478 335 424 301 408 250 C393 200 394 125 428 101 Z"/>
+            <path class="land" d="M578 261 C616 254 650 273 666 307 C632 328 592 321 571 294 C563 283 563 269 578 261 Z"/>
+            <path class="land" d="M464 284 C488 270 524 278 538 304 C516 330 475 331 452 309 C442 299 447 290 464 284 Z"/>
+            <path class="flight" stroke="#2f7c8c" d="M397 364 C433 294 500 216 547 165"/>
+            <path class="route" stroke="#2f7c8c" d="M547 165 C556 196 579 221 606 236 C586 254 562 268 534 287"/>
+            <path class="rail" stroke="#2f7c8c" d="M606 236 C629 250 645 271 652 301"/>
+            <circle class="dot" cx="397" cy="364" r="10" fill="#2f7c8c"/>
+            <circle class="dot" cx="547" cy="165" r="11" fill="#2f7c8c"/>
+            <circle class="dot" cx="606" cy="236" r="11" fill="#2f7c8c"/>
+            <circle class="dot" cx="534" cy="287" r="11" fill="#2f7c8c"/>
+            <circle class="dot" cx="652" cy="301" r="11" fill="#2f7c8c"/>
+            <circle class="minor-dot" cx="576" cy="181" r="5"/>
+            <circle class="minor-dot" cx="515" cy="198" r="5"/>
+            <text x="383" y="391">上海</text>
+            <text x="555" y="159">东京</text>
+            <text x="615" y="237">横滨</text>
+            <text x="537" y="310">箱根</text>
+            <text x="660" y="306">镰仓</text>
+            <text x="585" y="177" class="tiny-map">成田/羽田方向</text>
+            <text x="466" y="202" class="tiny-map">富士山方向</text>
+            <text x="620" y="287" class="tiny-map">江之岛</text>
+          </svg>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>推荐预算</b><span>9000-12000元，住宿位置会显著影响体验。</span></div>
+          <div class="stat"><b>推荐住宿</b><span>上野、浅草、新宿、池袋，优先近地铁站。</span></div>
+          <div class="stat"><b>路线气质</b><span>浅草寺、上野、涩谷、新宿、镰仓海边电车。</span></div>
+        </div>
+      </div>
+      <div class="photos">
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shibuya_Crossing_in_Tokyo.jpg?width=640" alt="东京涩谷十字路口" loading="lazy">
+          <span>东京｜涩谷</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sensoji_Temple_in_Tokyo.jpg?width=640" alt="东京浅草寺" loading="lazy">
+          <span>东京｜浅草寺</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Great_Buddha_of_Kamakura.jpg?width=640" alt="镰仓大佛" loading="lazy">
+          <span>镰仓｜大佛</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/LakeAshi%20and%20MtFuji%20Hakone.JPG?width=640" alt="箱根芦之湖与富士山" loading="lazy">
+          <span>箱根｜芦之湖</span>
+        </figure>
+      </div>
+      <div class="grid">
+        <div class="panel">
+          <h2>每日节奏</h2>
+          <div class="days">
+            <div class="day"><strong>D1</strong><span>抵达东京，晚上新宿或涩谷夜景。</span></div>
+            <div class="day"><strong>D2</strong><span>浅草寺、上野博物馆、秋叶原、银座。</span></div>
+            <div class="day"><strong>D3</strong><span>镰仓高校前、长谷寺、江之岛看海。</span></div>
+            <div class="day"><strong>D4</strong><span>箱根温泉或横滨港区，二选一更舒服。</span></div>
+            <div class="day"><strong>D5</strong><span>筑地/丰洲、代官山或中目黑，返程。</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>预算结构</h2>
+          <div class="bar">
+            <div class="bar-row"><span>机票</span><div class="track"><div class="fill" style="width: 76%"></div></div><span>2200-3200</span></div>
+            <div class="bar-row"><span>住宿</span><div class="track"><div class="fill" style="width: 96%"></div></div><span>3200-5000</span></div>
+            <div class="bar-row"><span>吃饭</span><div class="track"><div class="fill" style="width: 52%"></div></div><span>1400-2200</span></div>
+            <div class="bar-row"><span>交通</span><div class="track"><div class="fill" style="width: 38%"></div></div><span>900-1600</span></div>
+            <div class="bar-row"><span>杂费</span><div class="track"><div class="fill" style="width: 27%"></div></div><span>700-1200</span></div>
+          </div>
+          <div class="chips"><span class="chip">城市控</span><span class="chip">夜景多</span><span class="chip">每天步数高</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>适合：喜欢城市探索、潮流、博物馆、夜生活。</span><span>避坑：东京太大，住宿不要离地铁太远。</span></div>
+    </section>
+
+    <section class="poster classic">
+      <div class="eyebrow">经典大满贯｜7天开放口岸</div>
+      <h1>横跨 7天<br>大阪 京都 东京</h1>
+      <p class="lead">一次把日本最经典的城市组合走完。体验完整，但要接受搬酒店和新干线成本，适合体力和预算都稍微多一点。</p>
+      <div class="hero">
+        <div class="map">
+          <svg viewBox="0 0 760 430" aria-label="横跨路线图">
+            <rect width="760" height="430" class="sea"/>
+            <rect x="18" y="22" width="318" height="372" rx="18" class="map-frame"/>
+            <rect x="368" y="22" width="374" height="372" rx="18" class="map-frame"/>
+            <text x="36" y="54" class="caption">日本全国方位</text>
+            <text x="388" y="54" class="caption">东海道放大｜大阪到东京</text>
+            <circle cx="303" cy="56" r="20" class="compass"/>
+            <path d="M303 43 L310 64 L303 60 L296 64 Z" fill="#243138"/>
+            <text x="299" y="82" class="tiny-map">N</text>
+
+            <path class="land" d="M229 65 C257 45 296 49 314 75 C334 104 309 132 274 127 C241 122 215 100 217 80 C218 74 222 69 229 65 Z"/>
+            <path class="land" d="M79 286 C118 250 159 232 203 216 C247 200 263 171 285 145 C305 122 334 120 349 140 C364 161 347 184 318 200 C287 217 262 235 235 265 C207 296 169 324 123 328 C95 331 70 312 79 286 Z"/>
+            <path class="land" d="M168 304 C196 295 231 305 240 328 C249 352 217 367 184 359 C157 352 143 330 151 315 C154 310 160 306 168 304 Z"/>
+            <path class="land" d="M90 338 C119 325 153 338 161 363 C169 389 139 405 106 395 C78 386 61 363 72 348 C76 343 82 340 90 338 Z"/>
+            <path class="flight" stroke="#475f93" d="M48 382 C82 346 125 317 194 257"/>
+            <path class="route" stroke="#475f93" d="M194 257 C220 233 245 210 269 191 C289 176 304 170 318 170"/>
+            <ellipse cx="252" cy="218" rx="92" ry="64" class="focus" stroke="#475f93"/>
+            <circle class="dot" cx="48" cy="382" r="9" fill="#475f93"/>
+            <circle class="dot" cx="194" cy="257" r="9" fill="#475f93"/>
+            <circle class="dot" cx="224" cy="235" r="9" fill="#475f93"/>
+            <circle class="dot" cx="318" cy="170" r="9" fill="#475f93"/>
+            <text x="32" y="410">上海</text>
+            <text x="156" y="249">大阪</text>
+            <text x="229" y="229">京都</text>
+            <text x="327" y="164">东京</text>
+            <text x="236" y="54" class="tiny-map">北海道</text>
+            <text x="90" y="351" class="tiny-map">九州</text>
+
+            <path class="land" d="M415 250 C456 214 503 191 553 172 C604 152 632 124 669 91 C700 110 696 145 663 169 C625 198 592 222 559 260 C526 299 480 323 432 312 C404 306 392 276 415 250 Z"/>
+            <path class="land" d="M430 314 C464 303 505 313 518 339 C532 368 492 383 453 371 C424 362 411 336 421 322 C424 318 427 316 430 314 Z"/>
+            <path class="flight" stroke="#475f93" d="M394 364 C425 320 465 277 489 258"/>
+            <path class="route" stroke="#475f93" d="M489 258 C512 235 533 215 557 197 C584 177 610 158 636 136"/>
+            <path class="rail" stroke="#475f93" d="M557 197 C585 190 613 170 636 136"/>
+            <circle class="dot" cx="394" cy="364" r="10" fill="#475f93"/>
+            <circle class="dot" cx="489" cy="258" r="11" fill="#475f93"/>
+            <circle class="dot" cx="524" cy="229" r="11" fill="#475f93"/>
+            <circle class="dot" cx="636" cy="136" r="11" fill="#475f93"/>
+            <circle class="minor-dot" cx="557" cy="197" r="6"/>
+            <circle class="minor-dot" cx="587" cy="171" r="6"/>
+            <circle class="minor-dot" cx="608" cy="155" r="5"/>
+            <text x="380" y="391">上海</text>
+            <text x="459" y="251">大阪</text>
+            <text x="530" y="222">京都</text>
+            <text x="644" y="132">东京</text>
+            <text x="560" y="189" class="tiny-map">名古屋</text>
+            <text x="591" y="169" class="tiny-map">静冈</text>
+            <text x="500" y="292" class="tiny-map">东海道新干线</text>
+          </svg>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>推荐预算</b><span>12000-15000元起，新干线和住宿会抬高成本。</span></div>
+          <div class="stat"><b>推荐航线</b><span>大阪进、东京出，少走回头路。</span></div>
+          <div class="stat"><b>路线气质</b><span>吃喝、古都、大都会，一次完成经典印象。</span></div>
+        </div>
+      </div>
+      <div class="photos">
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dotonbori%2C%20Osaka.jpg?width=640" alt="大阪道顿堀夜景" loading="lazy">
+          <span>大阪｜道顿堀</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kiyomizu-dera%20in%20Kyoto-r.jpg?width=640" alt="京都清水寺" loading="lazy">
+          <span>京都｜清水寺</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Series-N700S-J2.jpg?width=640" alt="东海道新干线" loading="lazy">
+          <span>移动｜新干线</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shibuya_Crossing_in_Tokyo.jpg?width=640" alt="东京涩谷十字路口" loading="lazy">
+          <span>东京｜涩谷</span>
+        </figure>
+      </div>
+      <div class="grid">
+        <div class="panel">
+          <h2>每日节奏</h2>
+          <div class="days">
+            <div class="day"><strong>D1</strong><span>上海飞大阪，道顿堀和梅田夜景。</span></div>
+            <div class="day"><strong>D2</strong><span>大阪城市散步，黑门市场、大阪城。</span></div>
+            <div class="day"><strong>D3</strong><span>京都清水寺、祇园、鸭川。</span></div>
+            <div class="day"><strong>D4</strong><span>伏见稻荷或岚山，傍晚新干线去东京。</span></div>
+            <div class="day"><strong>D5-D6</strong><span>东京浅草、上野、涩谷、新宿，可加镰仓。</span></div>
+            <div class="day"><strong>D7</strong><span>东京轻松收尾，返上海。</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>预算结构</h2>
+          <div class="bar">
+            <div class="bar-row"><span>机票</span><div class="track"><div class="fill" style="width: 78%"></div></div><span>2500-4000</span></div>
+            <div class="bar-row"><span>住宿</span><div class="track"><div class="fill" style="width: 92%"></div></div><span>4500-6500</span></div>
+            <div class="bar-row"><span>新干线</span><div class="track"><div class="fill" style="width: 36%"></div></div><span>650-800</span></div>
+            <div class="bar-row"><span>吃饭</span><div class="track"><div class="fill" style="width: 58%"></div></div><span>2000-2800</span></div>
+            <div class="bar-row"><span>杂费</span><div class="track"><div class="fill" style="width: 34%"></div></div><span>1000-1800</span></div>
+          </div>
+          <div class="chips"><span class="chip">城市最多</span><span class="chip">预算更高</span><span class="chip">搬运行李</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>适合：想第一次就把东京、京都、大阪都摸到。</span><span>避坑：别每天排太满，新干线当天留出缓冲。</span></div>
+    </section>
+
+    <section class="poster hokkaido">
+      <div class="eyebrow">自然发散｜北海道 6-7天</div>
+      <h1>北海道<br>札幌 小樽 美瑛 登别</h1>
+      <p class="lead">更开阔、更慢、更像逃离城市的一趟旅行。6月的北海道比本州梅雨感弱，但交通规划难度会高一点。</p>
+      <div class="hero">
+        <div class="map">
+          <svg viewBox="0 0 760 430" aria-label="北海道路线图">
+            <rect width="760" height="430" class="sea"/>
+            <rect x="18" y="22" width="318" height="372" rx="18" class="map-frame"/>
+            <rect x="368" y="22" width="374" height="372" rx="18" class="map-frame"/>
+            <text x="36" y="54" class="caption">日本全国方位</text>
+            <text x="388" y="54" class="caption">北海道放大｜札幌、小樽、美瑛、登别</text>
+            <circle cx="303" cy="56" r="20" class="compass"/>
+            <path d="M303 43 L310 64 L303 60 L296 64 Z" fill="#243138"/>
+            <text x="299" y="82" class="tiny-map">N</text>
+
+            <path class="land" d="M229 65 C257 45 296 49 314 75 C334 104 309 132 274 127 C241 122 215 100 217 80 C218 74 222 69 229 65 Z"/>
+            <path class="land" d="M79 286 C118 250 159 232 203 216 C247 200 263 171 285 145 C305 122 334 120 349 140 C364 161 347 184 318 200 C287 217 262 235 235 265 C207 296 169 324 123 328 C95 331 70 312 79 286 Z"/>
+            <path class="land" d="M168 304 C196 295 231 305 240 328 C249 352 217 367 184 359 C157 352 143 330 151 315 C154 310 160 306 168 304 Z"/>
+            <path class="land" d="M90 338 C119 325 153 338 161 363 C169 389 139 405 106 395 C78 386 61 363 72 348 C76 343 82 340 90 338 Z"/>
+            <path class="flight" stroke="#5f7f45" d="M48 382 C105 289 170 172 255 92"/>
+            <ellipse cx="267" cy="88" rx="60" ry="45" class="focus" stroke="#5f7f45"/>
+            <circle class="dot" cx="48" cy="382" r="9" fill="#5f7f45"/>
+            <circle class="dot" cx="255" cy="92" r="9" fill="#5f7f45"/>
+            <circle class="minor-dot" cx="194" cy="257" r="5"/>
+            <circle class="minor-dot" cx="318" cy="170" r="5"/>
+            <text x="32" y="410">上海</text>
+            <text x="238" y="84">北海道</text>
+            <text x="155" y="249" class="tiny-map">关西</text>
+            <text x="318" y="158" class="tiny-map">东京</text>
+            <text x="90" y="351" class="tiny-map">九州</text>
+
+            <path class="land" d="M486 72 C535 48 592 60 632 102 C670 142 715 174 724 232 C689 274 622 288 571 262 C527 240 500 205 451 184 C405 164 389 114 423 85 C440 71 461 66 486 72 Z"/>
+            <path class="land" d="M424 247 C456 234 493 245 505 273 C480 297 437 294 416 269 C409 260 412 252 424 247 Z"/>
+            <path class="flight" stroke="#5f7f45" d="M393 364 C431 260 476 184 505 143"/>
+            <path class="route" stroke="#5f7f45" d="M505 143 C484 130 464 134 448 151 C480 165 527 166 568 153 C558 194 529 221 484 242"/>
+            <path class="rail" stroke="#5f7f45" d="M568 153 C610 170 637 202 646 243"/>
+            <circle class="dot" cx="393" cy="364" r="10" fill="#5f7f45"/>
+            <circle class="dot" cx="505" cy="143" r="11" fill="#5f7f45"/>
+            <circle class="dot" cx="448" cy="151" r="11" fill="#5f7f45"/>
+            <circle class="dot" cx="568" cy="153" r="11" fill="#5f7f45"/>
+            <circle class="dot" cx="484" cy="242" r="11" fill="#5f7f45"/>
+            <circle class="dot" cx="646" cy="243" r="11" fill="#5f7f45"/>
+            <circle class="minor-dot" cx="610" cy="205" r="5"/>
+            <text x="379" y="391">上海</text>
+            <text x="512" y="136">札幌</text>
+            <text x="414" y="151">小樽</text>
+            <text x="575" y="150">美瑛</text>
+            <text x="493" y="263">登别</text>
+            <text x="654" y="247">富良野</text>
+            <text x="616" y="204" class="tiny-map">旭川</text>
+            <text x="511" y="177" class="tiny-map">JR/巴士</text>
+          </svg>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>推荐预算</b><span>12000-16000元，旺季花田住宿要早订。</span></div>
+          <div class="stat"><b>推荐住宿</b><span>札幌作基地，小樽一日往返，登别住一晚温泉。</span></div>
+          <div class="stat"><b>路线气质</b><span>运河、丘陵、花田、温泉，比关西更松弛。</span></div>
+        </div>
+      </div>
+      <div class="photos">
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sapporo-Clock-Tower-2018.jpg?width=640" alt="札幌钟楼" loading="lazy">
+          <span>札幌｜钟楼</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Otaru_Canal_20140817.jpg?width=640" alt="小樽运河" loading="lazy">
+          <span>小樽｜运河</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Biei_Blue-pond.jpg?width=640" alt="美瑛青池" loading="lazy">
+          <span>美瑛｜青池</span>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Noboribetsu-jigokudani.JPG?width=640" alt="登别地狱谷" loading="lazy">
+          <span>登别｜地狱谷</span>
+        </figure>
+      </div>
+      <div class="grid">
+        <div class="panel">
+          <h2>每日节奏</h2>
+          <div class="days">
+            <div class="day"><strong>D1</strong><span>抵达札幌，狸小路、薄野、拉面横丁。</span></div>
+            <div class="day"><strong>D2</strong><span>小樽一日，运河、玻璃工坊、海边散步。</span></div>
+            <div class="day"><strong>D3</strong><span>札幌市区，北海道大学、圆山公园。</span></div>
+            <div class="day"><strong>D4</strong><span>富良野/美瑛，丘陵、花田、拼布之路。</span></div>
+            <div class="day"><strong>D5</strong><span>登别温泉，地狱谷，住温泉旅馆。</span></div>
+            <div class="day"><strong>D6-D7</strong><span>回札幌收尾，或加洞爷湖再返程。</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>预算结构</h2>
+          <div class="bar">
+            <div class="bar-row"><span>机票</span><div class="track"><div class="fill" style="width: 86%"></div></div><span>3000-5000</span></div>
+            <div class="bar-row"><span>住宿</span><div class="track"><div class="fill" style="width: 92%"></div></div><span>4500-7000</span></div>
+            <div class="bar-row"><span>吃饭</span><div class="track"><div class="fill" style="width: 54%"></div></div><span>1800-2800</span></div>
+            <div class="bar-row"><span>交通</span><div class="track"><div class="fill" style="width: 58%"></div></div><span>2000-3500</span></div>
+            <div class="bar-row"><span>杂费</span><div class="track"><div class="fill" style="width: 28%"></div></div><span>800-1500</span></div>
+          </div>
+          <div class="chips"><span class="chip">自然风景</span><span class="chip">温泉</span><span class="chip">交通需规划</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>适合：想看更开阔的风景，愿意少刷城市多放空。</span><span>避坑：不要把美瑛、登别、小樽都塞进5天。</span></div>
+    </section>
+  </main>
+</body>
+</html>
